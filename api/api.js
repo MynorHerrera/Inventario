@@ -28,7 +28,7 @@ app.use(bodyParser.json())
 app.use(require("./router/indexRouter"));
 
 //Conexion a la base de datos de mongodb
-mongoose.connect('mongodb://localhost:27017/inventario',{useNewUrlParser: true}, (err)=>{
+mongoose.connect(process.env.MONGOURL,{useNewUrlParser: true}, (err)=>{
     if(err){
         console.log(err);
      }else{
