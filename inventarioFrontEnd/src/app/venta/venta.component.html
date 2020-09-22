@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="">Cliente</label>
+                    <select name="" id="" class="form-control" [(ngModel)]="venta.cliente">
+                        <option value="">Seleccionar cliente</option>
+                        <option *ngFor="let cliente of clientes" value="{{cliente._id}}">
+                            {{cliente.nombre}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12" style="margin-top: 5%;">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="">Producto</label>
+                    <select name="" id="" class="form-control" (change)="poner_precio()" [(ngModel)]="venta.producto">
+                        <option value="">Seleccionar producto</option>
+                        <option *ngFor="let producto of productos" value="{{producto._id}}-{{producto.precio}}-{{producto.nombre}}">
+                            {{producto.nombre}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Precio</label>
+                    <input type="text" name="" id="" class="form-control" disabled [(ngModel)]="venta.precio">
+                </div>
+                <div class="form-group">
+                    <label for="">Cantidad</label>
+                    <input type="text" name="" id="" class="form-control" [(ngModel)]="venta.cantidad">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success float-right" (click)="agregar()">Agregar</button>
+                </div>
+            </div>
+
+            <div class="col-8">
+                <label for="">Productos</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Sub-total</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of venta.productos_detalle; let i = index" >
+                            <td>{{p.producto_nombre}}</td>
+                            <td>{{p.cantidad}}</td>
+                            <td>{{p.precio}}</td>
+                            <td>{{p.subtotal}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="4"></th>
+                            <th>Total: {{venta.total}}</th>
+                        </tr>
+                    </thead>
+                </table>
+                <button class="btn btn-success float-right" (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

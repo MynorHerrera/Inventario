@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="">Usuario:</label>
+            <input type="text" class="form-control" name="usuario" [(ngModel)]="usuario.usuario">
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group">
+            <label for="">Contraseña:</label>
+            <input type="password" class="form-control" name="clave" [(ngModel)]="usuario.clave">
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-success" (click)="ingresar()">Ingresar</button>
+    </div>
+</div>
